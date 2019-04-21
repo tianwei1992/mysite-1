@@ -5,7 +5,7 @@
     {% if title %}
     {{ title }}
     {% else %}
-    Welcome to my Home
+    默认标题|此页没有标题！
     {% endif %}
 {% endblock %}
 
@@ -91,7 +91,7 @@
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
-    {{ google.uanalytics('UA-137781832-1') }}
+    {{ google.uanalytics('UA-138748813-1') }}
     <script>
         // function translate(sourceElem, destElem, sourceLang, destLang) {
         //     $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
