@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros with context %}
 
 {% block app_content %}
     <h1>你好你好!  {{ current_user.username }}</h1>
@@ -7,21 +8,23 @@
     {{ wtf.quick_form(form) }}
     {% endif %}
     <br>
-    {% for post in posts %}
-        {% include '_post.html' %}
-    {% endfor %}
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled {% endif %}">
-                <a href="{{ prev_url or '#' }}">
-                    <span aria-hidden="true">&larr;</span> 前页
-                </a>
-            </li>
-            <li class="next{% if not next_url %} disabled {% endif %}">
-                <a href="{{ next_url or '#' }}">
-                    后页 <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li> 
-        </ul>
-    </nav>
+
+<div class="post-tabs">
+    {% include '_post.html' %}
+</div>
+
+<nav aria-label="...">
+    <ul class="pager">
+        <li class="preivious {% if not prev_url %} disabled {% endif %}">
+            <a href="{{ prev_url or '#' }}">
+                <span aria-hidden="true"></span> 👈
+            </a>
+        </li>
+        <li class="next{% if not next_url %} disabled {% endif %}">
+            <a href="{{ next_url or '#' }}">
+                👉 <span aria-hidden="true"></span>
+            </a>
+        </li>
+    </ul>
+</nav>
 {% endblock%}
